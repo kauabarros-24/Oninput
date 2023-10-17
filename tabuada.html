@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Destacar Nome na Lista</title>
+</head>
+
+<body>
+    <h1>Destacar Nome na Lista</h1>
+    <p>Insira um nome para destacar na lista:</p>
+    <input type="text" id="nomeInput">
+    <button onclick="destacarNome()">Destacar</button>
+    <ul id="listaNomes">
+        <li>João</li>
+        <li>Maria</li>
+        <li>Carlos</li>
+        <li>Ana</li>
+    </ul>
+
+    <script>
+        function destacarNome() {
+            let nome = document.getElementById("nomeInput").value;
+            let lista = document.getElementById("listaNomes");
+            let itens = lista.getElementsByTagName("li");
+
+            for (let i = 0; i < itens.length; i++) {
+                itens[i].innerHTML = itens[i].textContent;
+            }
+
+            for (let i = 0; i < itens.length; i++) {
+                if (itens[i].textContent === nome) {
+                    itens[i].innerHTML = "<strong>" + nome + "</strong>";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
