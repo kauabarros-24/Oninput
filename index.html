@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tabuada Automática</title>
+</head>
+<body>
+    <h1>Tabuada Automática</h1>
+    <p>Insira um número para ver a sua tabuada:</p>
+    <input type="number" id="numeroInput" oninput="mostrarTabuada()">
+    <br>
+    <div id="tabuada"></div>
+
+    <script>
+        function mostrarTabuada() {
+            let numero = document.getElementById("numeroInput").value;
+
+            
+            if (isNaN(numero)) {
+                document.getElementById("tabuada").innerHTML = "Por favor, insira um número válido.";
+                return;
+            }
+
+           
+            document.getElementById("tabuada").innerHTML = "";
+
+            
+            let tabela = "<h2>Tabuada do " + numero + "</h2><table>";
+            for (let i = 1; i <= 10; i++) {
+                tabela += "<tr><td>" + numero + " x " + i + ":</td><td>" + (numero * i) + "</td></tr>";
+            }
+            tabela += "</table>";
+
+            
+            document.getElementById("tabuada").innerHTML = tabela;
+        }
+    </script>
+</body>
+</html>
